@@ -7,7 +7,12 @@ import CustomButton from "../components/CustomButton";
 
 import { images } from "../constants";
 
+import { useGlobalContext } from "../context/GlobalProvider";
+
 export default function App() {
+  const { isLoggedIn, isLoading } = useGlobalContext();
+
+  if(!isLoading && isLoggedIn) return <Redirect href="/home" />
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView
@@ -49,7 +54,7 @@ export default function App() {
           </Text>
           <CustomButton
             title="Continue with email"
-            handlePress={() => router.push('/sign-in')}
+            handlePress={() => router.push("/sign-in")}
             containerStyles="w-full mt-7"
           />
         </View>
