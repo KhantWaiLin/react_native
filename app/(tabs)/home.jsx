@@ -23,13 +23,17 @@ const Home = () => {
   const { data: posts, refetch } = useAppwrite(getAllPosts);
   const { data: latestPosts } = useAppwrite(getLatestPosts);
   const [refreshing, setRefreshing] = useState(false);
-  const { user } = useGlobalContext();
+  const { user, isLoading } = useGlobalContext();
 
   const onRefresh = async () => {
     setRefreshing(true);
     await refetch();
     setRefreshing(false);
   };
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -45,7 +49,7 @@ const Home = () => {
                   Welcome Back
                 </Text>
                 <Text className="text-2xl font-psemibold text-white">
-                  {user.username}
+                  {user?.username}
                 </Text>
               </View>
               <View className="mt-1.5">
