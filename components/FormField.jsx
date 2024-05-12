@@ -20,7 +20,7 @@ const FormField = ({
         w-full h-16 bg-black-100 items-center px-4 "
       >
         <TextInput
-          className="flex-1 text-white font-psemibold text-base"
+          className="flex-1 mt-1.5 text-white font-psemibold text-base"
           value={value}
           placeholder={placeholder}
           placeholderTextColor="#7b7b8b"

@@ -27,6 +27,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-router", "expo-font"]
+    "plugins": [ "expo-document-picker", "expo-router", "expo-font"]
   }
 }
